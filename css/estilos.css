@@ -1,0 +1,121 @@
+body {
+
+    margin: 0;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background: #eaf6ff;
+
+}
+
+.fondo {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+}
+
+.contenedor {
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.titulo {
+
+    text-align: center;
+
+}
+
+.icono {
+
+    font-size: 60px;
+
+    color: #0ea5e9;
+}
+
+.titulo h1 {
+
+    color: #0284c7;
+
+    margin-top: 10px;
+}
+
+.subtitulo {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #334155;
+}
+
+.tarjeta {
+
+    background: #f8fafc;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    transition: 0.4s;
+
+    height: 100%;
+}
+
+.tarjeta:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.icono-tarjeta {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    color: #0284c7;
+}
+
+.tarjeta h2 {
+
+    color: #0f172a;
+}
+
+.tarjeta p {
+
+    color: #475569;
+
+    min-height: 90px;
+}
+
+.boton {
+
+    width: 100%;
+}
