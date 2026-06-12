@@ -1,276 +1,335 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Tópico Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Sistema de Tópico Digital</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
 
-    <style>
-        :root {
-            --celeste-1: #2fa8c8;
-            --celeste-2: #4DB8D8;
-            --celeste-3: #87CEEB;
-            --blanco: #ffffff;
-            --fondo: #f0faff;
-            --texto-dark: #0f172a;
-            --texto-mid: #3d5a6e;
-            --texto-light: #7a9db0;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+body{
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #dfeff5 0%,
+        #edf7fb 50%,
+        #f7fcfe 100%
+    );
+    overflow-x:hidden;
+}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(160deg, #e8f7fd 0%, #f5fbff 55%, #eaf6fb 100%);
-        }
+/* HEADER */
 
-        /* FONDO ICONOS */
-        .fondo-iconos {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+header{
+    background:linear-gradient(
+        90deg,
+        #1b9eb7,
+        #4bb9d6
+    );
 
-        .fondo-iconos i {
-            position: absolute;
-            color: var(--celeste-3);
-            opacity: 0.13;
-            line-height: 1;
-        }
+    padding:18px 40px;
 
-        .fondo-iconos .i1 { font-size: 280px; top: -60px;    left: 28%;  transform: rotate(-15deg); }
-        .fondo-iconos .i2 { font-size: 210px; top: 10px;     right: -30px; transform: rotate(10deg); }
-        .fondo-iconos .i3 { font-size: 190px; bottom: 40px;  left: -40px; transform: rotate(20deg); }
-        .fondo-iconos .i4 { font-size: 160px; bottom: -30px; right: 12%; transform: rotate(-10deg); }
-        .fondo-iconos .i5 { font-size: 130px; top: 48%;      left: 6%;   transform: rotate(5deg); }
+    display:flex;
+    align-items:center;
+    gap:18px;
 
-        /* HEADER */
-        .header {
-            background: linear-gradient(135deg, var(--celeste-1), var(--celeste-2));
-            padding: 18px 36px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            box-shadow: 0 2px 16px rgba(47,168,200,0.25);
-            position: relative;
-            z-index: 1;
-        }
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-        .header-icon {
-            width: 52px;
-            height: 52px;
-            background: rgba(255,255,255,0.22);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-        }
+.logo-box{
+    width:60px;
+    height:60px;
+    border-radius:16px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
 
-        .header-text h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: white;
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.2;
-        }
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-        .header-text p {
-            color: rgba(255,255,255,0.88);
-            font-size: 13px;
-            margin: 0;
-            font-family: 'DM Sans', sans-serif;
-        }
+.logo-box i{
+    color:white;
+    font-size:28px;
+}
 
-        /* MAIN */
-        .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 20px 40px;
-            position: relative;
-            z-index: 1;
-        }
+.header-text h1{
+    color:white;
+    font-size:2rem;
+    font-weight:700;
+    margin:0;
+}
 
-        .titulo-seccion {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+.header-text p{
+    color:rgba(255,255,255,.85);
+    font-size:.85rem;
+    margin:0;
+}
 
-        .titulo-seccion h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--texto-dark);
-            margin-bottom: 8px;
-        }
+/* MAIN */
 
-        .titulo-seccion p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 15px;
-            color: var(--texto-mid);
-        }
+main{
+    min-height:calc(100vh - 100px);
 
-        /* TARJETAS */
-        .tarjetas-wrapper {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-        .tarjeta {
-            background: var(--blanco);
-            border-radius: 24px;
-            padding: 48px 40px;
-            width: 300px;
-            text-align: center;
-            box-shadow: 0 4px 24px rgba(47,168,200,0.1);
-            cursor: pointer;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
+    padding:40px 20px;
+}
 
-        .tarjeta:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 40px rgba(47,168,200,0.2);
-            border-color: var(--celeste-3);
-        }
+.titulo{
+    text-align:center;
+    margin-bottom:45px;
+}
 
-        .icono-tarjeta {
-            width: 90px;
-            height: 90px;
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 28px;
-            font-size: 36px;
-            color: white;
-            background: linear-gradient(145deg, var(--celeste-3) 0%, var(--celeste-2) 45%, var(--celeste-1) 100%);
-            box-shadow: 0 6px 20px rgba(47,168,200,0.3);
-        }
+.titulo h2{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#0f2940;
+    margin-bottom:10px;
+}
 
-        .tarjeta h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--texto-dark);
-            margin-bottom: 12px;
-        }
+.titulo p{
+    font-size:.95rem;
+    color:#6d8ea0;
+}
 
-        .tarjeta p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            color: var(--texto-mid);
-            line-height: 1.7;
-            margin: 0;
-        }
+/* CARDS */
 
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            color: var(--texto-light);
-            position: relative;
-            z-index: 1;
-        }
+.cards{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-        @media (max-width: 680px) {
-            .tarjeta { width: 100%; max-width: 320px; }
-            .titulo-seccion h2 { font-size: 22px; }
-        }
-    </style>
+.card-sistema{
+    width:350px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px 35px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    border:1px solid #dceaf0;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.card-sistema:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+}
+
+.icon-card{
+    width:95px;
+    height:95px;
+
+    border-radius:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 25px;
+}
+
+.admin{
+    background:linear-gradient(
+        135deg,
+        #279fc0,
+        #42b5d3
+    );
+}
+
+.topico{
+    background:#69c7e4;
+}
+
+.icon-card i{
+    color:white;
+    font-size:2.6rem;
+}
+
+.card-sistema h3{
+    font-size:1.1rem;
+    font-weight:700;
+    color:#0f2940;
+    margin-bottom:15px;
+}
+
+.card-sistema p{
+    font-size:.85rem;
+    color:#648497;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.ingresar{
+    color:#2baed8;
+    font-size:.95rem;
+    font-weight:600;
+}
+
+.ingresar i{
+    margin-left:5px;
+}
+
+/* ICONOS DECORATIVOS */
+
+.decoracion{
+    position:absolute;
+    color:#8bcde2;
+    opacity:.08;
+    z-index:0;
+}
+
+.icono1{
+    left:20px;
+    top:260px;
+    font-size:120px;
+}
+
+.icono2{
+    right:50px;
+    top:200px;
+    font-size:220px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    color:#7f9db0;
+    font-size:.85rem;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .header-text h1{
+        font-size:1.6rem;
+    }
+
+    .card-sistema{
+        width:100%;
+        max-width:350px;
+    }
+
+}
+
+</style>
+
 </head>
-
 <body>
 
-    <!-- FONDO DECORATIVO -->
-    <div class="fondo-iconos">
-        <i class="fa-solid fa-stethoscope i1"></i>
-        <i class="fa-solid fa-heart-pulse i2"></i>
-        <i class="fa-solid fa-stethoscope i3"></i>
-        <i class="fa-solid fa-heart-pulse i4"></i>
-        <i class="fa-solid fa-stethoscope i5"></i>
-    </div>
+<i class="bi bi-plus-lg decoracion icono1"></i>
+<i class="bi bi-heart-pulse decoracion icono2"></i>
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="header-icon">
-            <i class="fa-solid fa-staff-snake"></i>
+<header>
+
+<div class="logo-box">
+<i class="bi bi-heart-pulse-fill"></i>
+</div>
+
+<div class="header-text">
+<h1>Sistema de Tópico Digital</h1>
+<p>IESTP "Contralmirante Manuel Villar Olivera" — Zorritos, Tumbes</p>
+</div>
+
+</header>
+
+<main>
+
+<div class="titulo">
+<h2>Seleccione su perfil de acceso</h2>
+<p>Elija el tipo de usuario para continuar al sistema de tópico</p>
+</div>
+
+<div class="cards">
+
+    <!-- ADMINISTRADOR -->
+    <div class="card-sistema"
+    onclick="window.location.href='paginas/login-admin.html'">
+
+        <div class="icon-card admin">
+            <i class="bi bi-shield-lock"></i>
         </div>
-        <div class="header-text">
-            <h1>Sistema de Tópico Digital</h1>
-            <p>IESTP "Contralmirante Manuel Villar Olivera" — Zorritos, Tumbes</p>
-        </div>
-    </div>
 
-    <!-- CONTENIDO -->
-    <div class="main">
+        <h3>Administrador</h3>
 
-        <div class="titulo-seccion">
-            <h2>Seleccione su perfil de acceso</h2>
-            <p>Elija el tipo de usuario para continuar al sistema de tópico</p>
-        </div>
+        <p>
+            Gestión completa: pacientes,
+            atenciones, inventario de
+            medicamentos y reportes
+        </p>
 
-        <div class="tarjetas-wrapper">
-
-            <!-- Administrador -->
-            <div class="tarjeta" onclick="irAdministrador()">
-                <div class="icono-tarjeta">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <h2>Administrador</h2>
-                <p>Gestión completa: pacientes, atenciones, inventario de medicamentos y reportes</p>
-            </div>
-
-            <!-- Encargado -->
-            <div class="tarjeta" onclick="irEncargado()">
-                <div class="icono-tarjeta">
-                    <i class="fa-solid fa-stethoscope"></i>
-                </div>
-                <h2>Encargado de Tópico</h2>
-                <p>Registro y atención de pacientes, primeros auxilios y consultas médicas</p>
-            </div>
-
+        <div class="ingresar">
+            Ingresar <i class="bi bi-arrow-right"></i>
         </div>
 
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        Sistema de Tópico Digital — IESTP "Contralmirante Manuel Villar Olivera" © 2026
+    <!-- ENCARGADA DEL TÓPICO -->
+    <div class="card-sistema"
+    onclick="window.location.href='paginas/login-topico.html'">
+
+        <div class="icon-card topico">
+            <i class="bi bi-heart-pulse-fill"></i>
+        </div>
+
+        <h3>Encargada del Tópico</h3>
+
+        <p>
+            Registro y atención de pacientes,
+            primeros auxilios y consultas
+            médicas
+        </p>
+
+        <div class="ingresar">
+            Ingresar <i class="bi bi-arrow-right"></i>
+        </div>
+
     </div>
 
-    <script>
-        function irAdministrador() {
-            window.location.href = "paginas/login-admin.html";
-        }
-        function irEncargado() {
-            window.location.href = "paginas/login-encargado.html";
-        }
-    </script>
+</div>
+
+</main>
+
+<footer>
+Sistema de Tópico Digital — © 2026
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
